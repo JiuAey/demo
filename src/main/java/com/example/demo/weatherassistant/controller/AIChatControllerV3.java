@@ -29,6 +29,8 @@ public class AIChatControllerV3 {
         String extractedCity = extractCity(userMessage);
         String finalResponse;
 
+        //提交
+
         if (extractedCity != null) {
             // 2. 查询真实天气
             try {
