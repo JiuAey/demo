@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: demo  # ?????????
+
+# Ollama ??????
+ai:
+  ollama:
+    base-url: http://localhost:11434
+    chat:
+      model: qwen2.5:7b  # ???? qwen2.5:7b ? qwen2.5:14b?function calling ????
+      options:
+        temperature: 0.7
+        max-tokens: 1000
+    client:
+      connect-timeout: 5s
+      read-timeout: 30s
+      max-attempts: 3
+      backoff:
+        initial-interval: 1s
+        max-interval: 5s
+        multiplier: 1.5
+
+# ???????????????
+datasource:
+  enabled: false
+
+server:
+  port: 8080
+
+error:
+  include-message: always
+  include-binding-errors: always
+
+# ????
+logging:
+  level:
+    org.springframework.ai: INFO
+    com.jiuaey.ai: DEBUG
+    org.springframework.web: INFO
+
+# UAPIs ?? API ??
+uapis:
+  api-key: ${UAPIS_API_KEY:uapi-bvnqejbzlbNnG8LKaxANzGaTA09JDnAI7948HOUQ}
+  base-url: https://uapis.cn/api
+  weather-path: /misc/weather
